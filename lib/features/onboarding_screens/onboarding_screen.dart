@@ -1,6 +1,7 @@
 import 'package:asbeza/core/colors.dart';
 import 'package:asbeza/core/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});
@@ -15,7 +16,7 @@ class Onboarding extends StatelessWidget {
             height: MediaQuery.of(context).size.height, // Set container height
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/onboarding.png'),
+                image: AssetImage('assets/images/onboarding.jpg'),
                 fit: BoxFit.cover, // Ensure the image covers the container
               ),
             ),
@@ -34,20 +35,16 @@ class Onboarding extends StatelessWidget {
                   style: onboardingTextStyle,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0, vertical: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 15),
                   child: Material(
                     borderRadius: BorderRadius.circular(50),
                     elevation: 30.0,
                     child: Container(
-                      padding: const EdgeInsets.all(20),
+                      padding: EdgeInsets.all(4.5.w),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: getStartedButtonColor1,
                         borderRadius: BorderRadius.circular(50),
-                        gradient: RadialGradient(
-                            colors: [getStartedButtonColor1, primaryColor],
-                            radius: 5),
+                        color: primaryColor,
                       ),
                       child: InkWell(
                         onTap: () {},
@@ -63,12 +60,20 @@ class Onboarding extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Already Have Account? "),
-                    TextButton(onPressed: () {}, child: const Text("Log In"))
+                    const Text(
+                      "Already Have Account? ",
+                      style: alreadyHaveAccountTextStyle,
+                    ),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Log In",
+                          style: loginTextStyle,
+                        ))
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: 3.h,
                 )
               ],
             ),

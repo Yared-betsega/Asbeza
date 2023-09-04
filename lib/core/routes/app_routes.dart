@@ -1,5 +1,6 @@
 import 'package:asbeza/core/constants/colors.dart';
 import 'package:asbeza/features/authentication/presentation/screens/login_page..dart';
+import 'package:asbeza/features/authentication/presentation/screens/signup_page.dart';
 import 'package:asbeza/features/home/presentation/screens/home_page.dart';
 import 'package:asbeza/features/onboarding_screens/onboarding_screen.dart';
 import 'package:asbeza/features/onboarding_screens/splash_screen.dart';
@@ -39,6 +40,11 @@ class AppRouter extends StatelessWidget {
           path: RoutePaths.login,
           builder: (BuildContext context, GoRouterState state) =>
               const LoginPage(),
+        ),
+        GoRoute(
+          path: RoutePaths.signUp,
+          builder: (BuildContext context, GoRouterState state) =>
+              const SignupPage(),
         ),
       ],
     );

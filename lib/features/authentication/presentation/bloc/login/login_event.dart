@@ -1,13 +1,15 @@
 part of 'login_bloc.dart';
 
 sealed class LoginEvent extends Equatable {
+  @override
+  List<Object> get props => [];
+}
+
+class Login extends LoginEvent {
   final String email;
   final String password;
-  const LoginEvent({
+  Login({
     required this.email,
     required this.password,
   });
-
-  @override
-  List<Object> get props => [];
 }

@@ -13,7 +13,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginUsecase usecase;
 
   LoginBloc({required this.usecase}) : super(LoginInitial()) {
-    on<LoginEvent>((event, emit) async {
+    on<Login>((event, emit) async {
       emit(LoginLoading());
       final Either<Failure, LoginPayload> response = await usecase(LoginPayload(
         email: event.email,

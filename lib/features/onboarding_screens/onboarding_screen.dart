@@ -49,7 +49,7 @@ class Onboarding extends StatelessWidget {
                       ),
                       child: InkWell(
                         onTap: () {
-                          context.go('/login');
+                          context.go('/signUp');
                         },
                         child: const Center(
                             child: Text(

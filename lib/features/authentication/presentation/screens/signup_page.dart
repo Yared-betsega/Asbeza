@@ -2,34 +2,36 @@ import 'package:asbeza/core/common_widgets/custom_snack_bar_content.dart';
 import 'package:asbeza/core/constants/colors.dart';
 import 'package:asbeza/core/constants/styles.dart';
 import 'package:asbeza/features/authentication/presentation/bloc/login/login_bloc.dart';
+import 'package:asbeza/features/authentication/presentation/bloc/signup/signup_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginBloc, LoginState>(
+    return BlocListener<SignupBloc, SignupState>(
       listener: (context, state) => {
-        if (state is LoginSuccess)
+        if (state is SignupSuccess)
           {
-            context.go('/home'),
+            context.go('/login'),
           }
-        else if (state is LoginFailure)
+        else if (state is SignupFailure)
           {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -71,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                   const Text(
-                    "Log In",
+                    "Sign Up",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 19,
@@ -117,6 +119,27 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                            "NAME",
+                            style: TextStyle(
+                              fontSize: 15.5.sp,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: 'Inter',
+                              color: primaryTextColor,
+                            ),
+                          ),
+                          SizedBox(height: 1.h),
+                          TextFormField(
+                            controller: _nameController,
+                            keyboardType: TextInputType.emailAddress,
+                            keyboardAppearance: Brightness.dark,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: primaryColor),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 4.h),
                           Text(
                             "EMAIL",
                             style: TextStyle(
@@ -184,19 +207,20 @@ class _LoginPageState extends State<LoginPage> {
                               child: InkWell(
                                 onTap: () {
                                   if (_formKey.currentState!.validate()) {
-                                    context.read<LoginBloc>().add(Login(
+                                    context.read<SignupBloc>().add(SignUp(
+                                          name: _nameController.text,
                                           email: _emailController.text,
                                           password: _passwordController.text,
                                         ));
                                   }
                                 },
                                 child: Center(
-                                    child: BlocBuilder<LoginBloc, LoginState>(
+                                    child: BlocBuilder<SignupBloc, SignupState>(
                                   builder: (context, state) =>
-                                      (state is LoginLoading)
+                                      (state is SignupLoading)
                                           ? const CircularProgressIndicator()
                                           : const Text(
-                                              "Log In",
+                                              "Sign Up",
                                               style: getStartedTextStyle,
                                             ),
                                 )),

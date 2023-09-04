@@ -40,6 +40,9 @@ dependencies:
   vector_graphics_compiler: ^1.1.7
   responsive_sizer: ^3.2.0
   go_router: ^10.1.2
+  dartz: ^0.10.1
+  equatable: ^2.0.5
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:

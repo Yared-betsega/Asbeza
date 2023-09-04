@@ -16,6 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool isObscure = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                     size: 5.w,
                   ),
                   onPressed: () {
-                    // Add your back button logic here
+                    context.go('/onboardingPage');
                   },
                 ),
                 const Text(
@@ -105,6 +107,8 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: 1.h),
                         TextFormField(
                           controller: _emailController,
+                          keyboardType: TextInputType.emailAddress,
+                          keyboardAppearance: Brightness.dark,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderSide: BorderSide(color: primaryColor),
@@ -124,8 +128,23 @@ class _LoginPageState extends State<LoginPage> {
                         SizedBox(height: 1.h),
                         TextFormField(
                           controller: _passwordController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
+                          obscureText: isObscure,
+                          keyboardType: TextInputType.visiblePassword,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  isObscure = !isObscure;
+                                });
+                              },
+                              icon: Icon(
+                                isObscure
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: primaryColor,
+                              ),
+                            ),
                           ),
                         ),
                         SizedBox(height: 8.h),

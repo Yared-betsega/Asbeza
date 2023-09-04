@@ -1,6 +1,7 @@
-import 'package:asbeza/core/colors.dart';
-import 'package:asbeza/core/styles.dart';
+import 'package:asbeza/core/constants/colors.dart';
+import 'package:asbeza/core/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Onboarding extends StatelessWidget {
@@ -47,7 +48,9 @@ class Onboarding extends StatelessWidget {
                         color: primaryColor,
                       ),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          context.go('/login');
+                        },
                         child: const Center(
                             child: Text(
                           "Get Started",
@@ -64,16 +67,21 @@ class Onboarding extends StatelessWidget {
                       "Already Have Account? ",
                       style: alreadyHaveAccountTextStyle,
                     ),
-                    TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Log In",
-                          style: loginTextStyle,
-                        ))
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: TextButton(
+                          onPressed: () {
+                            context.go('/login');
+                          },
+                          child: Text(
+                            "Log In",
+                            style: loginTextStyle,
+                          )),
+                    )
                   ],
                 ),
                 SizedBox(
-                  height: 3.h,
+                  height: 4.h,
                 )
               ],
             ),

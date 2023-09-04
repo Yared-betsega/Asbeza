@@ -1,6 +1,7 @@
 import 'package:asbeza/features/onboarding_screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,14 +11,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late Future _timer;
   @override
   void initState() {
     super.initState();
     // Add a delay before navigating to the main content
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const Onboarding()),
-      );
+      if (mounted) {
+        context.go("/onboardingPage");
+      }
     });
   }
 
@@ -40,8 +42,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void dispose() {
+    super.dispose();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
-    super.dispose();
   }
 }

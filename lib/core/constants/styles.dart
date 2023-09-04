@@ -1,4 +1,4 @@
-import 'package:asbeza/core/colors.dart';
+import 'package:asbeza/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 const onboardingTextStyle = TextStyle(

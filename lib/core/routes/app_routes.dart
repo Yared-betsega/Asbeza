@@ -13,7 +13,7 @@ class AppRouter extends StatelessWidget {
 
   AppRouter({Key? key}) : super(key: key) {
     _router = GoRouter(
-      initialLocation: RoutePaths.splash,
+      initialLocation: RoutePaths.home,
       routes: <GoRoute>[
         GoRoute(
           path: RoutePaths.splash,

@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
           }
       },
       child: Scaffold(
-        body: SingleChildScrollView(
+        body: SingleChildScrollView( 
           child: Stack(children: [
             Container(
               width: MediaQuery.of(context).size.width, // Set container width

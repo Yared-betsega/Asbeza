@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../widgets/custom_list_tile.dart';
+import '../widgets/greeting_text_widget.dart';
 import '../widgets/income_expense.dart';
 import '../widgets/main_background_widget.dart';
 
@@ -164,37 +166,7 @@ class _HomePageState extends State<HomePage> {
                         child: ListView.builder(
                           itemCount: 50,
                           itemBuilder: (BuildContext context, int index) =>
-                              ListTile(
-                            leading: Image(
-                              image: AssetImage(
-                                  'assets/images/${foodList[index % 4]['type'] == 1 ? 'food.jpeg' : foodList[index % 4]['type'] == 2 ? 'cloth.png' : foodList[index % 4]['type'] == 3 ? 'transport.png' : 'debt.png'}'),
-                            ),
-                            title: Text(
-                              foodList[index % 4]['title'],
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            subtitle: Text(
-                              foodList[index % 4]['date'],
-                              style: TextStyle(
-                                fontSize: 16.5.sp,
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Inter',
-                              ),
-                            ),
-                            trailing: Text(
-                              "${foodList[index % 4]['add'] ? '+' : '-'}${foodList[index % 4]['amount']} .00 br",
-                              style: TextStyle(
-                                  color: foodList[index % 4]['add']
-                                      ? Colors.green
-                                      : Colors.red,
-                                  fontSize: 18.sp,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
+                              CustomListTile(transaction: foodList[index % 4]),
                         ),
                       )
                     ],
@@ -205,52 +177,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class GreetingContent extends StatelessWidget {
-  const GreetingContent({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Good afternoon",
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'Inter',
-              ),
-            ),
-            Text(
-              "Engelin Morgeana",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 19,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        IconButton(
-          icon: Icon(
-            Icons.notifications_outlined,
-            fill: 0.1,
-            color: Colors.white,
-            size: 7.w,
-          ),
-          onPressed: () {
-            // Add your menu button logic here
-          },
-        ),
-      ],
     );
   }
 }

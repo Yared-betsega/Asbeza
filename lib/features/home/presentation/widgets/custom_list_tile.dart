@@ -12,7 +12,9 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: const EdgeInsets.only(top: 0),
       leading: Image(
+        width: 10.w,
         image: AssetImage(
             'assets/images/${transaction['type'] == 1 ? 'food.jpeg' : transaction['type'] == 2 ? 'cloth.png' : transaction['type'] == 3 ? 'transport.png' : 'debt.png'}'),
       ),
@@ -35,7 +37,7 @@ class CustomListTile extends StatelessWidget {
         "${transaction['add'] ? '+' : '-'}${transaction['amount']} .00 br",
         style: TextStyle(
             color: transaction['add'] ? Colors.green : Colors.red,
-            fontSize: 18.sp,
+            fontSize: 17.sp,
             fontFamily: 'Inter',
             fontWeight: FontWeight.w600),
       ),

@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
           }
       },
       child: Scaffold(
-        body: SingleChildScrollView( 
+        body: SingleChildScrollView(
           child: Stack(children: [
             Container(
               width: MediaQuery.of(context).size.width, // Set container width
@@ -194,7 +194,9 @@ class _LoginPageState extends State<LoginPage> {
                                     child: BlocBuilder<LoginBloc, LoginState>(
                                   builder: (context, state) =>
                                       (state is LoginLoading)
-                                          ? const CircularProgressIndicator()
+                                          ? const CircularProgressIndicator(
+                                              color: Colors.white,
+                                            )
                                           : const Text(
                                               "Log In",
                                               style: getStartedTextStyle,

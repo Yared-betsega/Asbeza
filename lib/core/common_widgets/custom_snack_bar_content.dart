@@ -14,7 +14,6 @@ class CustomSnackBarContent extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(16),
-          height: 90,
           decoration: BoxDecoration(
             color: primaryColor,
             borderRadius: const BorderRadius.all(Radius.circular(20)),

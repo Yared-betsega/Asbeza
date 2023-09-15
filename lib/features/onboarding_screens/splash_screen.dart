@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Add a delay before navigating to the main content
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
-        context.go("/onboardingPage");
+        context.go("/auth");
       }
     });
   }

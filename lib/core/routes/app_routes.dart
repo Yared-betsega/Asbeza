@@ -1,9 +1,9 @@
 import 'package:asbeza/core/constants/colors.dart';
+import 'package:asbeza/features/authentication/presentation/screens/auth_page.dart';
 import 'package:asbeza/features/authentication/presentation/screens/login_page..dart';
 import 'package:asbeza/features/authentication/presentation/screens/signup_page.dart';
 import 'package:asbeza/features/home/presentation/screens/debt_history_details_screen.dart';
 import 'package:asbeza/features/home/presentation/screens/home_page.dart';
-import 'package:asbeza/features/home/presentation/screens/home_page_temp.dart';
 import 'package:asbeza/features/home/presentation/screens/transaction_history_detail_screen.dart';
 import 'package:asbeza/features/onboarding_screens/onboarding_screen.dart';
 import 'package:asbeza/features/onboarding_screens/splash_screen.dart';
@@ -16,12 +16,17 @@ class AppRouter extends StatelessWidget {
 
   AppRouter({Key? key}) : super(key: key) {
     _router = GoRouter(
-      initialLocation: RoutePaths.home,
+      initialLocation: RoutePaths.splash,
       routes: <GoRoute>[
         GoRoute(
           path: RoutePaths.splash,
           builder: (BuildContext context, GoRouterState state) =>
               const SplashScreen(),
+        ),
+        GoRoute(
+          path: RoutePaths.auth,
+          builder: (BuildContext context, GoRouterState state) =>
+              const AuthPage(),
         ),
         GoRoute(
           path: RoutePaths.onboardingPage,

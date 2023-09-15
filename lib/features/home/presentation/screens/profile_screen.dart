@@ -2,6 +2,7 @@ import 'package:asbeza/core/constants/colors.dart';
 import 'package:asbeza/features/home/presentation/widgets/custom_navigator.dart';
 import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
 import 'package:asbeza/features/home/presentation/widgets/profile_page_tile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -115,6 +116,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           title: "Data and privacy",
                           image_path: "assets/icons/profile/privacy.svg",
                           onTap: () {}),
+                      ProfilePageTile(
+                          title: "Sign Out",
+                          image_path: "assets/icons/profile/privacy.svg",
+                          onTap: () {
+                            FirebaseAuth.instance.signOut();
+                          }),
                     ],
                   ),
                 ),

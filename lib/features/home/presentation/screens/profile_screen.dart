@@ -1,0 +1,128 @@
+import 'package:asbeza/core/constants/colors.dart';
+import 'package:asbeza/features/home/presentation/widgets/custom_navigator.dart';
+import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
+import 'package:asbeza/features/home/presentation/widgets/profile_page_tile.dart';
+import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../widgets/invite_friends_widget.dart';
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        const MainBackground(),
+        Padding(
+          padding: EdgeInsets.only(top: 6.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                flex: 4,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomNavigator(
+                      isStat: false,
+                      text: "Profile",
+                      color: Colors.white,
+                      onPressed: () {},
+                      iconUrl: 'assets/icons/profile/notification.svg',
+                    ),
+                    Center(
+                      child: SizedBox(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            children: <Widget>[
+                              CircleAvatar(
+                                backgroundColor: Colors.white,
+                                radius: 12.w,
+                                backgroundImage: const AssetImage(
+                                    'assets/images/default_profile.png'),
+                              ),
+                              const SizedBox(height: 16),
+                              Text(
+                                'Enjelin Morgeana',
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                '@johndoe',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: primaryColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 5,
+                child: Container(
+                  padding: EdgeInsets.all(6.w),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InviteFriends(
+                          title: "Invite friends",
+                          image_path: "assets/icons/profile/diamond.png",
+                          onTap: () {}),
+                      Container(
+                        height: 1.h,
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            top: BorderSide(
+                              color: Color.fromARGB(255, 228, 228, 228),
+                            ),
+                          ),
+                        ),
+                      ),
+                      ProfilePageTile(
+                          title: "Account info",
+                          image_path: "assets/icons/profile/account_info.svg",
+                          onTap: () {}),
+                      ProfilePageTile(
+                          title: "Personal profile",
+                          image_path:
+                              "assets/icons/profile/personal_profile.svg",
+                          onTap: () {}),
+                      ProfilePageTile(
+                          title: "Message center",
+                          image_path: "assets/icons/profile/envelope.svg",
+                          onTap: () {}),
+                      ProfilePageTile(
+                          title: "Login and security",
+                          image_path: "assets/icons/profile/security.svg",
+                          onTap: () {}),
+                      ProfilePageTile(
+                          title: "Data and privacy",
+                          image_path: "assets/icons/profile/privacy.svg",
+                          onTap: () {}),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}

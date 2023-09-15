@@ -4,4 +4,6 @@ class RoutePaths {
   static const String onboardingPage = '/onboardingPage';
   static const String signUp = '/signUp';
   static const String login = '/login';
+  static const String transactionHistoryDetails = 'transactionHistoryDetails';
+  static const String debtHistoryDetails = 'debtHistoryDetails';
 }

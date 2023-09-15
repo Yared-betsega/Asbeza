@@ -24,6 +24,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           (Failure failure) => emit(LoginFailure(failure.message)),
           (LoginPayload payload) =>
               emit(LoginSuccess(payload.email, payload.password)));
-    });
+    }); 
   }
 }

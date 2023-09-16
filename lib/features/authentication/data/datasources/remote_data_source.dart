@@ -11,7 +11,7 @@ import '../models/login_payload_model.dart';
 
 abstract class AuthenticationRemoteDataSource {
   Future<UserCredential> login({required LoginPayload payload});
-  Future<SignUpPayloadModel> signup({required SignUpPayload payload});
+  Future<UserCredential> signup({required SignUpPayload payload});
 }
 
 class AuthenticationRemoteDataSourceImpl
@@ -28,22 +28,24 @@ class AuthenticationRemoteDataSourceImpl
               email: payload.email, password: payload.password);
 
       return response;
-    } catch (e) {
-      throw ServerException(e.toString());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+        throw ServerException('Email or password incorrect');
+      } else {
+        throw ServerException('Cannot login at this time.');
+      }
     }
   }
 
   @override
-  Future<SignUpPayloadModel> signup({required SignUpPayload payload}) async {
-    const String uri = "";
+  Future<UserCredential> signup({required SignUpPayload payload}) async {
     try {
-      final http.Response response = await http.post(Uri.parse(uri));
-      if (response.statusCode == 200) {
-        return SignUpPayloadModel.fromJson(json.decode(response.body));
-      }
-      throw ServerException(response.statusCode.toString());
-    } catch (e) {
-      throw ServerException("Server failed to respond");
+      final UserCredential response = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: payload.email, password: payload.password);
+      return response;
+    } on FirebaseAuthException catch (e) {
+      throw ServerException(e.message!);
     }
   }
 }

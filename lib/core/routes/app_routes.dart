@@ -1,6 +1,7 @@
 import 'package:asbeza/core/constants/colors.dart';
 import 'package:asbeza/features/authentication/presentation/screens/auth_page.dart';
 import 'package:asbeza/features/authentication/presentation/screens/login_page..dart';
+import 'package:asbeza/features/authentication/presentation/screens/login_sign_up_toggler.dart';
 import 'package:asbeza/features/authentication/presentation/screens/signup_page.dart';
 import 'package:asbeza/features/home/presentation/screens/debt_history_details_screen.dart';
 import 'package:asbeza/features/home/presentation/screens/home_page.dart';
@@ -27,6 +28,11 @@ class AppRouter extends StatelessWidget {
           path: RoutePaths.auth,
           builder: (BuildContext context, GoRouterState state) =>
               const AuthPage(),
+        ),
+        GoRoute(
+          path: RoutePaths.authScreens,
+          builder: (BuildContext context, GoRouterState state) =>
+              const LoginSignUPToggler(),
         ),
         GoRoute(
           path: RoutePaths.onboardingPage,
@@ -56,15 +62,21 @@ class AppRouter extends StatelessWidget {
         //       const SignUpPage(),
         // ),
         GoRoute(
-          path: RoutePaths.login,
-          builder: (BuildContext context, GoRouterState state) =>
-              const LoginPage(),
-        ),
+            path: RoutePaths.login,
+            builder: (BuildContext context, GoRouterState state) {
+              var extra = state.extra as Map<String, dynamic>;
+              return LoginPage(
+                showSignupPage: extra['showSignupPage'],
+              );
+            }),
         GoRoute(
-          path: RoutePaths.signUp,
-          builder: (BuildContext context, GoRouterState state) =>
-              const SignupPage(),
-        ),
+            path: RoutePaths.signUp,
+            builder: (BuildContext context, GoRouterState state) {
+              var extra = state.extra as Map<String, dynamic>;
+              return SignupPage(
+                showLoginPage: extra['showSignupPage'],
+              );
+            }),
       ],
     );
   }

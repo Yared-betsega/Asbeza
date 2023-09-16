@@ -8,5 +8,5 @@ import '../../../../core/errors/failures.dart';
 
 abstract class AuthenticationRepository extends Equatable {
   Future<Either<Failure, UserCredential>> login(LoginPayload payload);
-  Future<Either<Failure, SignUpPayload>> signUp(SignUpPayload payload);
+  Future<Either<Failure, UserCredential>> signUp(SignUpPayload payload);
 }

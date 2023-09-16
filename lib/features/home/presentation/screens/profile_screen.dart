@@ -4,6 +4,7 @@ import 'package:asbeza/features/home/presentation/widgets/main_background_widget
 import 'package:asbeza/features/home/presentation/widgets/profile_page_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../widgets/invite_friends_widget.dart';
@@ -54,17 +55,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Text(
                                 'Enjelin Morgeana',
                                 style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    fontSize: 18.sp,
+                                    fontFamily: 'Inter',
+                                    fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 '@johndoe',
                                 style: TextStyle(
-                                  fontSize: 16,
-                                  color: primaryColor,
-                                ),
+                                    fontSize: 16, color: primaryColor),
                               ),
                             ],
                           ),
@@ -95,6 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       ),
+                      
                       ProfilePageTile(
                           title: "Account info",
                           image_path: "assets/icons/profile/account_info.svg",
@@ -120,7 +119,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           title: "Sign Out",
                           image_path: "assets/icons/profile/privacy.svg",
                           onTap: () {
-                            FirebaseAuth.instance.signOut();
+                            _showConfirmationDialog(context);
                           }),
                     ],
                   ),
@@ -131,5 +130,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
         )
       ],
     );
+  }
+
+  void _showConfirmationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Confirm Sign Out'),
+          content: const Text('Are you sure you want to sign out?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                _performSignOut(context);
+              },
+              child: const Text('Confirm'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _performSignOut(BuildContext context) {
+    FirebaseAuth.instance.signOut();
+    context.go('/authScreens');
   }
 }

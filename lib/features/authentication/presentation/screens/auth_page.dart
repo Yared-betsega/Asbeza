@@ -1,4 +1,5 @@
 import 'package:asbeza/features/authentication/presentation/screens/login_page..dart';
+import 'package:asbeza/features/authentication/presentation/screens/login_sign_up_toggler.dart';
 import 'package:asbeza/features/home/presentation/screens/home_page.dart';
 import 'package:asbeza/features/onboarding_screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class AuthPage extends StatelessWidget {
           if (snapshot.hasData) {
             return const HomePage();
           } else {
-            return const Onboarding();
+            return const LoginSignUPToggler();
           }
         },
       ),

@@ -12,15 +12,9 @@ final class SignupInitial extends SignupState {}
 final class SignupLoading extends SignupState {}
 
 final class SignupSuccess extends SignupState {
-  final String name;
-  final String email;
-  final String password;
+  final UserCredential credentials;
 
-  const SignupSuccess({
-    required this.name,
-    required this.email,
-    required this.password,
-  });
+  const SignupSuccess({required this.credentials});
 }
 
 final class SignupFailure extends SignupState {

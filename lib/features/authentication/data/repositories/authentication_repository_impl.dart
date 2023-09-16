@@ -32,13 +32,13 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   List<Object?> get props => [];
 
   @override
-  Future<Either<Failure, SignUpPayload>> signUp(SignUpPayload payload) async {
+  Future<Either<Failure, UserCredential>> signUp(SignUpPayload payload) async {
     try {
-      final SignUpPayloadModel signUpPayloadModel =
+      final UserCredential signUpPayloadModel =
           await dataSource.signup(payload: payload);
-      return Right<Failure, SignUpPayloadModel>(signUpPayloadModel);
+      return Right<Failure, UserCredential>(signUpPayloadModel);
     } catch (e) {
-      return Left<Failure, SignUpPayload>(ServerFailure(e.toString()));
+      return Left<Failure, UserCredential>(ServerFailure(e.toString()));
     }
   }
 

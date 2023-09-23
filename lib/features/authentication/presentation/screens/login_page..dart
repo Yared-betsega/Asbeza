@@ -275,8 +275,10 @@ class _LoginPageState extends State<LoginPage> {
                                 children: [
                                   SquareTile(
                                       imagePath: 'assets/images/google.png',
-                                      onTap: () =>
-                                          AuthService().signInWithGoogle())
+                                      onTap: () {
+                                        BlocProvider.of<LoginBloc>(context)
+                                            .add(LoginWithGoogle());
+                                      })
                                 ],
                               )
                             ],

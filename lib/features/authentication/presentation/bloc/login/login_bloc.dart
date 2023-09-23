@@ -6,6 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../../core/errors/failures.dart';
+import '../../../../../core/services/auth_service.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -26,6 +27,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           (Failure failure) => emit(LoginFailure(failure.message)),
           (UserCredential credential) =>
               emit(LoginSuccess(credentials: credential)));
+    });
+    on<LoginWithGoogle>((event, emit) async {
+      emit(LoginLoading());
+      AuthService().signInWithGoogle();
+      print("About to emit =============");
+      emit(LoginWithGoogleSuccess());
+    });
+    on<Logout>((event, emit) async {
+      print("===========");
+      FirebaseAuth.instance.signOut();
+      emit(LoginInitial());
     });
   }
 }

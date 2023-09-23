@@ -22,3 +22,5 @@ class LoginFailure extends LoginState {
 
   const LoginFailure(this.message);
 }
+
+class LoginWithGoogleSuccess extends LoginState {}

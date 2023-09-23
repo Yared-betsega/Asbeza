@@ -1,9 +1,11 @@
 import 'package:asbeza/core/constants/colors.dart';
+import 'package:asbeza/features/authentication/presentation/bloc/login/login_bloc.dart';
 import 'package:asbeza/features/home/presentation/widgets/custom_navigator.dart';
 import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
 import 'package:asbeza/features/home/presentation/widgets/profile_page_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -93,7 +95,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       ),
-                      
                       ProfilePageTile(
                           title: "Account info",
                           image_path: "assets/icons/profile/account_info.svg",
@@ -148,6 +149,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             TextButton(
               onPressed: () {
+                Navigator.of(context).pop();
+
                 _performSignOut(context);
               },
               child: const Text('Confirm'),
@@ -159,7 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _performSignOut(BuildContext context) {
-    FirebaseAuth.instance.signOut();
-    context.go('/authScreens');
+    BlocProvider.of<LoginBloc>(context).add(Logout());
+    context.go('/auth');
   }
 }

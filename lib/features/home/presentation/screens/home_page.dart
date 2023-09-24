@@ -1,5 +1,7 @@
 import 'package:asbeza/core/constants/colors.dart';
 import 'package:asbeza/features/home/presentation/screens/transaction_screen.dart';
+import 'package:asbeza/features/home/presentation/widgets/bottom_navbar_with_floating_action_button.dart';
+import 'package:asbeza/features/home/presentation/widgets/bottom_navbar_without_floating_action_button.dart';
 import 'package:asbeza/features/home/presentation/widgets/obscure_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -82,67 +84,15 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 1.w),
           width: 100.w,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: 31.w,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        isSelected: selectedIndex == 0,
-                        iconSize: 9.w,
-                        icon: Image.asset(selectedIndex == 0
-                            ? 'assets/icons/home_pressed.png'
-                            : 'assets/icons/home.png'),
-                        splashColor: primaryColor,
-                        onPressed: () {
-                          navigateToPage(0);
-                        },
-                      ),
-                      IconButton(
-                        iconSize: 9.w,
-                        isSelected: selectedIndex == 1,
-                        icon: Image.asset(selectedIndex == 1
-                            ? 'assets/icons/stats_pressed.png'
-                            : 'assets/icons/stats.png'),
-                        onPressed: () {
-                          navigateToPage(1);
-                        },
-                      ),
-                    ]),
-              ),
-              SizedBox(
-                width: 32.w,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      iconSize: 9.w,
-                      isSelected: selectedIndex == 2,
-                      icon: Image.asset(selectedIndex == 2
-                          ? 'assets/icons/debt_pressed.png'
-                          : 'assets/icons/debt.png'),
-                      onPressed: () {
-                        navigateToPage(2);
-                      },
-                    ),
-                    IconButton(
-                      iconSize: 9.w,
-                      isSelected: selectedIndex == 3,
-                      icon: Image.asset(selectedIndex == 3
-                          ? 'assets/icons/profile_pressed.png'
-                          : 'assets/icons/profile.png'),
-                      onPressed: () {
-                        navigateToPage(3);
-                      },
-                    ),
-                  ],
+          child: selectedIndex == 0 || selectedIndex == 2
+              ? BottomNavbarWithFloatingActionButton(
+                  selectedIndex: selectedIndex,
+                  navigateToPage: navigateToPage,
+                )
+              : BottomNavbarWithoutFloatingActionButton(
+                  selectedIndex: selectedIndex,
+                  navigateToPage: navigateToPage,
                 ),
-              ),
-            ],
-          ),
         ),
       ),
     );

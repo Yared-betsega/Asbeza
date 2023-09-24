@@ -1,11 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../../../core/extensions/string_extensions.dart';
 
 class GreetingContent extends StatelessWidget {
-  const GreetingContent({
+  GreetingContent({
     super.key,
   });
 
+  final currentUser = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,10 +16,10 @@ class GreetingContent extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Good afternoon",
                 style: TextStyle(
                   color: Colors.white,
@@ -24,8 +27,8 @@ class GreetingContent extends StatelessWidget {
                 ),
               ),
               Text(
-                "Engelin Morgeana",
-                style: TextStyle(
+                currentUser!.displayName!.toTitleCase(),
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 19,
                     fontFamily: 'Inter',

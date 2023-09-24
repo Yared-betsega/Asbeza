@@ -63,7 +63,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 flex: 3,
                 child: Column(
                   children: [
-                    const GreetingContent(),
+                    GreetingContent(),
                     Center(
                       child: Material(
                         elevation: 20,

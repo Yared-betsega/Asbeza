@@ -39,7 +39,7 @@ class _DebtScreenState extends State<DebtScreen> {
                 flex: 2,
                 child: Column(
                   children: [
-                    const GreetingContent(),
+                    GreetingContent(),
                     Center(
                       child: Material(
                         elevation: 20,

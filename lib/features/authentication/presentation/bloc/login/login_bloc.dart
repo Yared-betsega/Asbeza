@@ -30,13 +30,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
     on<LoginWithGoogle>((event, emit) async {
       emit(LoginLoading());
-      AuthService().signInWithGoogle();
-      print("About to emit =============");
+      await AuthService().signInWithGoogle();
       emit(LoginWithGoogleSuccess());
     });
     on<Logout>((event, emit) async {
-      print("===========");
-      FirebaseAuth.instance.signOut();
+      await AuthService().singOut();
       emit(LoginInitial());
     });
   }

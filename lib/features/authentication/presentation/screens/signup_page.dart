@@ -10,6 +10,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/common_widgets/password_input_decoration.dart';
 import '../../../../core/services/auth_service.dart';
+import '../bloc/login/login_bloc.dart';
 import '../widgets/square_tile.dart';
 
 class SignupPage extends StatefulWidget {
@@ -281,8 +282,10 @@ class _SignupPageState extends State<SignupPage> {
                               children: [
                                 SquareTile(
                                     imagePath: 'assets/images/google.png',
-                                    onTap: () =>
-                                        AuthService().signInWithGoogle())
+                                    onTap: () {
+                                      BlocProvider.of<LoginBloc>(context)
+                                          .add(LoginWithGoogle());
+                                    })
                               ],
                             )
                           ],

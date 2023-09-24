@@ -14,7 +14,6 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   final SignUpUseCase usecase;
   SignupBloc({required this.usecase}) : super(SignupInitial()) {
     on<SignUp>((event, emit) async {
-      print("Sign up event raised================");
       emit(SignupLoading());
       final Either<Failure, UserCredential> response =
           await usecase(SignUpPayload(

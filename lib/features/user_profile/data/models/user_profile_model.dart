@@ -1,19 +1,30 @@
+import 'package:asbeza/features/home/data/models/transaction_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../domain/entities/user_profile.dart';
 
 class UserProfileModel extends UserProfile {
+  final String id;
+
   const UserProfileModel({
+    required this.id,
     required super.totalBalance,
     required super.income,
     required super.expenses,
     required super.transactions,
   });
 
-  factory UserProfileModel.fromJson(Map<String, dynamic> json) {
+  factory UserProfileModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document,
+      List<TransactionModel> transactions) {
+    final data = document.data()!;
+
     return UserProfileModel(
-      totalBalance: json['totalBalance'],
-      income: json['income'],
-      expenses: json['expenses'],
-      transactions: json['transactions'],
+      id: document.id,
+      totalBalance: data['totalBalance'].toDouble(),
+      income: data['income'].toDouble(),
+      expenses: data['expenses'].toDouble(),
+      transactions: transactions,
     );
   }
 

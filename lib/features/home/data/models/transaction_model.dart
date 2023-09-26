@@ -8,6 +8,7 @@ class TransactionModel extends Transaction {
     required super.type,
     required super.reason,
     required super.category,
+    required super.add,
   });
 
   factory TransactionModel.fromJson(Map<String, dynamic> json) {
@@ -17,7 +18,8 @@ class TransactionModel extends Transaction {
         reason: json["reason"],
         name: json["name"],
         category: json["category"],
-        date: json["date"]);
+        date: json["date"],
+        add: json["add"]);
   }
 
   Map<String, dynamic> toJson() {

@@ -1,6 +1,6 @@
 import 'package:asbeza/core/errors/failures.dart';
 import 'package:asbeza/features/home/data/datasources/home_remote_data_source.dart';
-import 'package:asbeza/features/home/data/models/user_profile_model.dart';
+import 'package:asbeza/features/home/data/models/transaction_model.dart';
 import 'package:asbeza/features/home/domain/entities/transaction.dart';
 import 'package:asbeza/features/home/domain/repositories/home_repository.dart';
 import 'package:asbeza/features/user_profile/data/models/user_profile_model.dart';

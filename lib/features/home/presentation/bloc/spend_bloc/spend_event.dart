@@ -9,11 +9,12 @@ sealed class SpendEvent extends Equatable {
 
 class Spend extends SpendEvent {
   final String name;
-  final DateTime date;
-  final double amount;
-  final String type;
+  final Timestamp date;
+  final int amount;
+  final int type;
   final String reason;
   final String category;
+  final bool add;
 
   const Spend({
     required this.name,
@@ -22,5 +23,6 @@ class Spend extends SpendEvent {
     required this.type,
     required this.reason,
     required this.category,
+    required this.add,
   });
 }

@@ -12,7 +12,7 @@ final class SpendInitial extends SpendState {}
 final class SpendLoading extends SpendState {}
 
 final class SpendSuccess extends SpendState {
-  final Transaction transaction;
+  final transaction_entity.Transaction transaction;
 
   const SpendSuccess({required this.transaction});
 }

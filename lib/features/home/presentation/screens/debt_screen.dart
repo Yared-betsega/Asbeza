@@ -142,13 +142,13 @@ class _DebtScreenState extends State<DebtScreen> {
                         flex: 5,
                         child: SizedBox(
                           child: ListView.builder(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 1.w, vertical: 0),
-                            itemCount: 50,
-                            itemBuilder: (BuildContext context, int index) =>
-                                CustomListTile(
-                                    transaction: foodList[index % 4]),
-                          ),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 1.w, vertical: 0),
+                              itemCount: 50,
+                              itemBuilder: (BuildContext context, int index) =>
+                                  // CustomListTile(
+                                  //     transaction: foodList[index % 4]),
+                                  Text("Please wait...")),
                         ),
                       )
                     ],

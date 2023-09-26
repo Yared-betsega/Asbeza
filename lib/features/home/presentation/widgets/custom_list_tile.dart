@@ -1,3 +1,4 @@
+import 'package:asbeza/features/home/domain/entities/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -7,7 +8,7 @@ class CustomListTile extends StatelessWidget {
     required this.transaction,
   });
 
-  final Map<String, dynamic> transaction;
+  final Transaction transaction;
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +17,17 @@ class CustomListTile extends StatelessWidget {
       leading: Image(
         width: 10.w,
         image: AssetImage(
-            'assets/images/${transaction['type'] == 1 ? 'food.jpeg' : transaction['type'] == 2 ? 'cloth.png' : transaction['type'] == 3 ? 'transport.png' : 'debt.png'}'),
+            'assets/images/${transaction.type == 1 ? 'food.jpeg' : transaction.type == 2 ? 'cloth.png' : transaction.type == 3 ? 'transport.png' : 'debt.png'}'),
       ),
       title: Text(
-        transaction['title'],
+        transaction.name,
         style: TextStyle(
           fontSize: 17.sp,
           fontWeight: FontWeight.w500,
         ),
       ),
       subtitle: Text(
-        transaction['date'],
+        transaction.date.toDate().toIso8601String(),
         style: TextStyle(
           fontSize: 16.5.sp,
           fontWeight: FontWeight.w300,
@@ -34,9 +35,9 @@ class CustomListTile extends StatelessWidget {
         ),
       ),
       trailing: Text(
-        "${transaction['add'] ? '+' : '-'}${transaction['amount']} .00 br",
+        "${transaction.add ? '+' : '-'}${transaction.amount} .00 br",
         style: TextStyle(
-            color: transaction['add'] ? Colors.green : Colors.red,
+            color: transaction.add ? Colors.green : Colors.red,
             fontSize: 17.sp,
             fontFamily: 'Inter',
             fontWeight: FontWeight.w600),

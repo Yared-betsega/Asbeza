@@ -1,12 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class Transaction extends Equatable {
   final String name;
-  final DateTime date;
-  final double amount;
-  final String type;
+  final Timestamp date;
+  final int amount;
+  final int type;
   final String reason;
   final String category;
+  final bool add;
 
   const Transaction({
     required this.name,
@@ -15,6 +17,7 @@ class Transaction extends Equatable {
     required this.type,
     required this.reason,
     required this.category,
+    required this.add,
   });
 
   @override

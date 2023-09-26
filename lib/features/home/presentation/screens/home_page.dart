@@ -1,9 +1,11 @@
 import 'package:asbeza/core/constants/colors.dart';
+import 'package:asbeza/features/home/presentation/bloc/home_bloc/home_bloc.dart';
 import 'package:asbeza/features/home/presentation/screens/transaction_screen.dart';
 import 'package:asbeza/features/home/presentation/widgets/bottom_navbar_with_floating_action_button.dart';
 import 'package:asbeza/features/home/presentation/widgets/bottom_navbar_without_floating_action_button.dart';
 import 'package:asbeza/features/home/presentation/widgets/obscure_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -27,6 +29,12 @@ class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<HomeBloc>(context).add(LoadHome());
+  }
 
   @override
   void dispose() {

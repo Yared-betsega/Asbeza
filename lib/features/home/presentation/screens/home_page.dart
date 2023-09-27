@@ -9,6 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../../../core/common_widgets/text_input_decoration.dart';
+import '../../../../core/constants/styles.dart';
+import '../widgets/add_transaction_widget.dart';
 import '../widgets/custom_list_tile.dart';
 import '../widgets/greeting_text_widget.dart';
 import '../widgets/custom_rectangular_card.dart';
@@ -27,6 +30,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final PageController _controller = PageController(initialPage: 0);
   int selectedIndex = 0;
+  bool isFormVisible = false;
+  final _formKey = GlobalKey<FormState>();
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -42,29 +48,45 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  void toggleFormVisibility() {
+    setState(() {
+      isFormVisible = !isFormVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _controller,
-        pageSnapping: true,
-        onPageChanged: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-          _controller.animateToPage(
-            selectedIndex,
-            duration: const Duration(seconds: 1),
-            curve: Curves.linearToEaseOut,
-          );
-        },
-        children: const [
-          TransactionScreen(),
-          StatScreen(),
-          DebtScreen(),
-          ProfileScreen()
-        ],
-      ),
+      body: Stack(children: [
+        PageView(
+          controller: _controller,
+          pageSnapping: true,
+          onPageChanged: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+            _controller.animateToPage(
+              selectedIndex,
+              duration: const Duration(seconds: 1),
+              curve: Curves.linearToEaseOut,
+            );
+          },
+          children: const [
+            TransactionScreen(),
+            StatScreen(),
+            DebtScreen(),
+            ProfileScreen()
+          ],
+        ),
+        AnimatedPositioned(
+          duration: const Duration(milliseconds: 500),
+          top: isFormVisible ? null : 100.h,
+          bottom: isFormVisible ? 0 : null, // Adjust as needed
+          left: 0,
+          right: 0,
+          child: AddTransaction(formKey: _formKey),
+        ),
+      ]),
       floatingActionButton: selectedIndex == 0 || selectedIndex == 2
           ? Container(
               padding: EdgeInsets.all(1.w),
@@ -73,10 +95,10 @@ class _HomePageState extends State<HomePage> {
               child: FloatingActionButton(
                 backgroundColor: primaryColor,
                 shape: const CircleBorder(),
-                onPressed: () {},
+                onPressed: toggleFormVisibility,
                 elevation: 2.0,
                 child: Icon(
-                  Icons.add,
+                  !isFormVisible ? Icons.add : Icons.remove,
                   color: Colors.white,
                   size: 10.w,
                 ),
@@ -84,6 +106,7 @@ class _HomePageState extends State<HomePage> {
             )
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomAppBar(
         elevation: 80,
         shadowColor: primaryColor,

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "479045799334",
+    "project_id": "asbeza-56263",
+    "storage_bucket": "asbeza-56263.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479045799334:android:ab12a586b21910d4065367",
+        "android_client_info": {
+          "package_name": "com.example.asbeza"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnuN-t4Fdn1F86-xzyx4KmioQS5xNUL44"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -12,10 +12,9 @@ final class LoginInitial extends LoginState {}
 class LoginLoading extends LoginState {}
 
 class LoginSuccess extends LoginState {
-  final String email;
-  final String password;
+  final UserCredential credentials;
 
-  const LoginSuccess(this.email, this.password);
+  const LoginSuccess({required this.credentials});
 }
 
 class LoginFailure extends LoginState {
@@ -23,3 +22,5 @@ class LoginFailure extends LoginState {
 
   const LoginFailure(this.message);
 }
+
+class LoginWithGoogleSuccess extends LoginState {}

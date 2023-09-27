@@ -13,3 +13,7 @@ class Login extends LoginEvent {
     required this.password,
   });
 }
+
+class LoginWithGoogle extends LoginEvent {}
+
+class Logout extends LoginEvent {}

@@ -1,3 +1,4 @@
+import 'package:asbeza/core/errors/exceptions.dart';
 import 'package:asbeza/core/errors/failures.dart';
 import 'package:asbeza/features/authentication/data/datasources/remote_data_source.dart';
 import 'package:asbeza/features/authentication/data/models/login_payload_model.dart';
@@ -7,6 +8,7 @@ import 'package:asbeza/features/authentication/domain/entities/login_payload.dar
 import 'package:asbeza/features/authentication/domain/entities/signup_payload.dart';
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../domain/repositories/authentication_repository.dart';
 import '../models/signup_payload_model.dart';
@@ -16,13 +18,13 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
   AuthenticationRepositoryImpl({required this.dataSource});
   @override
-  Future<Either<Failure, LoginPayload>> login(LoginPayload payload) async {
+  Future<Either<Failure, UserCredential>> login(LoginPayload payload) async {
     try {
-      final LoginPayloadModel loginPayloadModel =
+      final UserCredential credential =
           await dataSource.login(payload: payload);
-      return Right<Failure, LoginPayload>(loginPayloadModel);
-    } catch (e) {
-      return Left<Failure, LoginPayload>(ServerFailure(e.toString()));
+      return Right<Failure, UserCredential>(credential);
+    } on ServerException catch (e) {
+      return Left<Failure, UserCredential>(ServerFailure(e.message));
     }
   }
 
@@ -30,13 +32,13 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   List<Object?> get props => [];
 
   @override
-  Future<Either<Failure, SignUpPayload>> signUp(SignUpPayload payload) async {
+  Future<Either<Failure, UserCredential>> signUp(SignUpPayload payload) async {
     try {
-      final SignUpPayloadModel signUpPayloadModel =
+      final UserCredential signUpPayloadModel =
           await dataSource.signup(payload: payload);
-      return Right<Failure, SignUpPayloadModel>(signUpPayloadModel);
+      return Right<Failure, UserCredential>(signUpPayloadModel);
     } catch (e) {
-      return Left<Failure, SignUpPayload>(ServerFailure(e.toString()));
+      return Left<Failure, UserCredential>(ServerFailure(e.toString()));
     }
   }
 

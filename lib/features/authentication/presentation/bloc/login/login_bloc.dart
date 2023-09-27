@@ -3,8 +3,10 @@ import 'package:asbeza/features/authentication/domain/usecases/login.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../../core/errors/failures.dart';
+import '../../../../../core/services/auth_service.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
@@ -15,15 +17,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({required this.usecase}) : super(LoginInitial()) {
     on<Login>((event, emit) async {
       emit(LoginLoading());
-      final Either<Failure, LoginPayload> response = await usecase(LoginPayload(
+      final Either<Failure, UserCredential> response =
+          await usecase(LoginPayload(
         email: event.email,
         password: event.password,
       ));
 
       response.fold(
           (Failure failure) => emit(LoginFailure(failure.message)),
-          (LoginPayload payload) =>
-              emit(LoginSuccess(payload.email, payload.password)));
+          (UserCredential credential) =>
+              emit(LoginSuccess(credentials: credential)));
+    });
+    on<LoginWithGoogle>((event, emit) async {
+      emit(LoginLoading());
+      await AuthService().signInWithGoogle();
+      emit(LoginWithGoogleSuccess());
+    });
+    on<Logout>((event, emit) async {
+      await AuthService().singOut();
+      emit(LoginInitial());
     });
   }
 }

@@ -1,13 +1,11 @@
 import 'package:asbeza/core/common_widgets/custom_snack_bar_content.dart';
 import 'package:asbeza/core/constants/colors.dart';
 import 'package:asbeza/core/constants/styles.dart';
-import 'package:asbeza/core/services/auth_service.dart';
 import 'package:asbeza/features/authentication/presentation/bloc/login/login_bloc.dart';
 import 'package:asbeza/features/authentication/presentation/widgets/square_tile.dart';
 import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../widgets/custom_list_tile.dart';

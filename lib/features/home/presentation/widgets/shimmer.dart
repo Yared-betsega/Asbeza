@@ -4,7 +4,7 @@ class ShimmerWidget extends StatefulWidget {
   final Widget child;
   final Duration duration;
 
-  ShimmerWidget({
+  const ShimmerWidget({super.key, 
     required this.child,
     this.duration = const Duration(milliseconds: 1000),
   });

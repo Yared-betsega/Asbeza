@@ -6,7 +6,7 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/styles.dart';
 
 class AddTransaction extends StatefulWidget {
-  AddTransaction({
+  const AddTransaction({
     super.key,
     required GlobalKey<FormState> formKey,
   }) : _formKey = formKey;

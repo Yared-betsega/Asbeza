@@ -3,7 +3,6 @@ import 'package:asbeza/features/authentication/presentation/bloc/login/login_blo
 import 'package:asbeza/features/home/presentation/widgets/custom_navigator.dart';
 import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
 import 'package:asbeza/features/home/presentation/widgets/profile_page_tile.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

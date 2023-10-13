@@ -1,7 +1,6 @@
 import 'package:asbeza/core/errors/exceptions.dart';
 import 'package:asbeza/core/errors/failures.dart';
 import 'package:asbeza/features/authentication/data/datasources/remote_data_source.dart';
-import 'package:asbeza/features/authentication/data/models/login_payload_model.dart';
 
 import 'package:asbeza/features/authentication/domain/entities/login_payload.dart';
 
@@ -11,7 +10,6 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../domain/repositories/authentication_repository.dart';
-import '../models/signup_payload_model.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final AuthenticationRemoteDataSource dataSource;

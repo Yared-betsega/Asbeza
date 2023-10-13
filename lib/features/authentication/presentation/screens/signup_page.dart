@@ -9,7 +9,6 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/common_widgets/password_input_decoration.dart';
-import '../../../../core/services/auth_service.dart';
 import '../bloc/login/login_bloc.dart';
 import '../widgets/square_tile.dart';
 

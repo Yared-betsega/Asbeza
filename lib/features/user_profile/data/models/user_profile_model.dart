@@ -11,6 +11,8 @@ class UserProfileModel extends UserProfile {
     required super.totalBalance,
     required super.income,
     required super.expenses,
+    required super.debt,
+    required super.credit,
     required super.transactions,
   });
 
@@ -24,6 +26,8 @@ class UserProfileModel extends UserProfile {
       totalBalance: data['totalBalance'].toDouble(),
       income: data['income'].toDouble(),
       expenses: data['expenses'].toDouble(),
+      debt: data['debt'].toDouble(),
+      credit: data['credit'].toDouble(),
       transactions: transactions,
     );
   }
@@ -34,6 +38,8 @@ class UserProfileModel extends UserProfile {
       'income': income,
       'expenses': expenses,
       'transactions': transactions,
+      'debt': debt,
+      'credit': credit,
     };
   }
 }

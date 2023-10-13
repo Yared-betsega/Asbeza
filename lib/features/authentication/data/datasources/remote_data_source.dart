@@ -1,13 +1,10 @@
-import 'dart:convert';
 
 import 'package:asbeza/core/errors/exceptions.dart';
-import 'package:asbeza/features/authentication/data/models/signup_payload_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart' as http;
 
 import '../../domain/entities/login_payload.dart';
 import '../../domain/entities/signup_payload.dart';
-import '../models/login_payload_model.dart';
 
 abstract class AuthenticationRemoteDataSource {
   Future<UserCredential> login({required LoginPayload payload});

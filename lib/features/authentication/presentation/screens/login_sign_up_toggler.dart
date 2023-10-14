@@ -1,6 +1,4 @@
-import 'package:asbeza/features/authentication/presentation/screens/login_page..dart';
-import 'package:asbeza/features/authentication/presentation/screens/signup_page.dart';
-import 'package:flutter/material.dart';
+import 'package:asbeza/asbeza.dart';
 
 class LoginSignUPToggler extends StatefulWidget {
   const LoginSignUPToggler({super.key});

@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:asbeza/asbeza.dart';
 
 class ShimmerWidget extends StatefulWidget {
   final Widget child;
   final Duration duration;
 
-  const ShimmerWidget({super.key, 
+  const ShimmerWidget({
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 1000),
   });

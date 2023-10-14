@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-
-import 'obscure_text_widget.dart';
+import 'package:asbeza/asbeza.dart';
 
 class CustomRectangularCard extends StatelessWidget {
   const CustomRectangularCard({

@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:asbeza/asbeza.dart';
 
 abstract class Failure extends Equatable {
   final String message;

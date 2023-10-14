@@ -1,6 +1,4 @@
-import 'package:asbeza/core/constants/colors.dart';
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:asbeza/asbeza.dart';
 
 const onboardingTextStyle = TextStyle(
     color: Color(0XFF438883),

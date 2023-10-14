@@ -1,16 +1,4 @@
-import 'package:asbeza/features/home/presentation/bloc/home_bloc/home_bloc.dart';
-import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
-import 'package:asbeza/features/home/presentation/widgets/shimmers/shimmer_loading.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../../../../core/constants/colors.dart';
-import '../widgets/custom_list_tile.dart';
-import '../widgets/greeting_text_widget.dart';
-import '../widgets/custom_rectangular_card.dart';
-import '../../../../core/constants/data_variables.dart';
+import 'package:asbeza/asbeza.dart';
 
 class DebtScreen extends StatefulWidget {
   const DebtScreen({

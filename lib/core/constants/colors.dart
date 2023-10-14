@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:asbeza/asbeza.dart';
 
 Color primaryColor = const Color(0XFF438883);
 Color getStartedButtonColor2 = const Color(0xff3E7C78);

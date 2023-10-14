@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../constants/colors.dart';
+import 'package:asbeza/asbeza.dart';
 
 InputDecoration textInputDecoration() {
   return InputDecoration(

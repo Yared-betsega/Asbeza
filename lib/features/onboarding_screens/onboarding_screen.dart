@@ -1,8 +1,4 @@
-import 'package:asbeza/core/constants/colors.dart';
-import 'package:asbeza/core/constants/styles.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:asbeza/asbeza.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});

@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:asbeza/asbeza.dart';
 
 class SignUpPayload extends Equatable {
   final String email;

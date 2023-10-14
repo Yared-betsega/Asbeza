@@ -1,14 +1,4 @@
-import 'package:asbeza/core/constants/colors.dart';
-import 'package:asbeza/features/authentication/presentation/bloc/login/login_bloc.dart';
-import 'package:asbeza/features/home/presentation/widgets/custom_navigator.dart';
-import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
-import 'package:asbeza/features/home/presentation/widgets/profile_page_tile.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../widgets/invite_friends_widget.dart';
+import 'package:asbeza/asbeza.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -82,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       InviteFriends(
                           title: "Invite friends",
-                          image_path: "assets/icons/profile/diamond.png",
+                          imagePath: "assets/icons/profile/diamond.png",
                           onTap: () {}),
                       Container(
                         height: 1.h,

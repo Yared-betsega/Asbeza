@@ -1,10 +1,4 @@
-import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
-import '../../../../core/errors/failures.dart';
-import '../../../../core/usecases/usecase.dart';
-import '../entities/signup_payload.dart';
-import '../repositories/authentication_repository.dart';
+import 'package:asbeza/asbeza.dart';
 
 class SignUpUseCase extends UseCase<UserCredential, SignUpPayload> {
   final AuthenticationRepository authenticationRepository;

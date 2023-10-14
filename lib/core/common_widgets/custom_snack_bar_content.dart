@@ -1,6 +1,4 @@
-import 'package:asbeza/core/constants/colors.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:asbeza/asbeza.dart';
 
 class CustomSnackBarContent extends StatelessWidget {
   final String errorText;

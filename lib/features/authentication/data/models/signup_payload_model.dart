@@ -1,4 +1,4 @@
-import '../../domain/entities/signup_payload.dart';
+import 'package:asbeza/asbeza.dart';
 
 class SignUpPayloadModel extends SignUpPayload {
   const SignUpPayloadModel({

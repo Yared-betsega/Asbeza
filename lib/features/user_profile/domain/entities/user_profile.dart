@@ -1,5 +1,4 @@
-import 'package:asbeza/features/home/domain/entities/transaction.dart';
-import 'package:equatable/equatable.dart';
+import 'package:asbeza/asbeza.dart';
 
 class UserProfile extends Equatable {
   final double totalBalance;

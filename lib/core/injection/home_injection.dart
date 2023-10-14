@@ -1,11 +1,4 @@
-import '../../features/home/data/datasources/home_remote_data_source.dart';
-import '../../features/home/data/repositories/home_repository_impl.dart';
-import '../../features/home/domain/repositories/home_repository.dart';
-import '../../features/home/domain/usecases/load_home.dart';
-import '../../features/home/domain/usecases/spend.dart';
-import '../../features/home/presentation/bloc/home_bloc/home_bloc.dart';
-import '../../features/home/presentation/bloc/spend_bloc/spend_bloc.dart';
-import 'injection_container.dart';
+import 'package:asbeza/asbeza.dart';
 
 Future<void> homeInjection() async {
   // Bloc

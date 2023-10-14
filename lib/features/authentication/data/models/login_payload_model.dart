@@ -1,4 +1,4 @@
-import '../../domain/entities/login_payload.dart';
+import 'package:asbeza/asbeza.dart';
 
 class LoginPayloadModel extends LoginPayload {
   const LoginPayloadModel({

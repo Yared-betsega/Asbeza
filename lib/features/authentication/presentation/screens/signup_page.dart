@@ -1,16 +1,4 @@
-import 'package:asbeza/core/common_widgets/text_input_decoration.dart';
-import 'package:asbeza/core/constants/colors.dart';
-import 'package:asbeza/core/constants/styles.dart';
-import 'package:asbeza/features/authentication/presentation/bloc/signup/signup_bloc.dart';
-import 'package:asbeza/features/home/presentation/widgets/main_background_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-
-import '../../../../core/common_widgets/password_input_decoration.dart';
-import '../bloc/login/login_bloc.dart';
-import '../widgets/square_tile.dart';
+import 'package:asbeza/asbeza.dart';
 
 class SignupPage extends StatefulWidget {
   final VoidCallback showLoginPage;

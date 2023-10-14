@@ -1,6 +1,4 @@
-import 'package:asbeza/features/home/domain/entities/transaction.dart';
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:asbeza/asbeza.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({

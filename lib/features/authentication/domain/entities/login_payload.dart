@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:asbeza/asbeza.dart';
 
 class LoginPayload extends Equatable {
   final String email;

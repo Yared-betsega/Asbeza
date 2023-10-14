@@ -1,6 +1,4 @@
-import 'package:asbeza/features/home/presentation/widgets/custom_navigator.dart';
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:asbeza/asbeza.dart';
 
 class StatScreen extends StatefulWidget {
   const StatScreen({super.key});

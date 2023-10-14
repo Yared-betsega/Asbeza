@@ -1,7 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import '../../../../core/extensions/string_extensions.dart';
+import 'package:asbeza/asbeza.dart';
 
 class GreetingContent extends StatelessWidget {
   GreetingContent({

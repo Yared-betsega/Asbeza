@@ -1,7 +1,4 @@
-import 'package:asbeza/features/home/data/models/transaction_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../../domain/entities/user_profile.dart';
+import 'package:asbeza/asbeza.dart';
 
 class UserProfileModel extends UserProfile {
   final String id;

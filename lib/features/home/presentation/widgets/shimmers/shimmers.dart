@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:asbeza/asbeza.dart';
 
 Shimmer getBalanceTextShimmer({required double width, required double height}) {
   return Shimmer.fromColors(

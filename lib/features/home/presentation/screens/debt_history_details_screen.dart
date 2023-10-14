@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:asbeza/asbeza.dart';
 
 class DebtHistoryDetails extends StatefulWidget {
   const DebtHistoryDetails({super.key});

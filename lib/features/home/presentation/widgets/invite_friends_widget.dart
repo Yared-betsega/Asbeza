@@ -1,15 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:asbeza/asbeza.dart';
 
 class InviteFriends extends StatelessWidget {
   const InviteFriends({
     super.key,
     required this.title,
-    required this.image_path,
+    required this.imagePath,
     required this.onTap,
   });
   final String title;
-  final String image_path;
+  final String imagePath;
   final VoidCallback onTap;
 
   @override
@@ -21,7 +20,7 @@ class InviteFriends extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              image_path,
+              imagePath,
               width: 10.w,
             ),
             SizedBox(

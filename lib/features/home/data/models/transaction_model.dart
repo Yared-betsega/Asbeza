@@ -1,4 +1,4 @@
-import 'package:asbeza/features/home/domain/entities/transaction.dart';
+import 'package:asbeza/asbeza.dart';
 
 class TransactionModel extends Transaction {
   const TransactionModel({
